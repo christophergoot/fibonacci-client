@@ -33,7 +33,7 @@ class FibonacciComponent extends Component {
 						min='1'
 						required
 					/>
-					<input type='submit' value='Generate' />
+					<input type='submit' value='GENERATE' />
 				</form>
 				<div id='fibonacci-list'>
 					{this.renderFibonacciList(this.props.list)}

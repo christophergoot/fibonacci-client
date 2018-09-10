@@ -5,11 +5,16 @@
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
+  background-color: white;
+  border-radius: 50%;
+  padding: .25em;
 }
 
 .App-header {
-  background-color: #FF6700;
-  height: 150px;
+  /* background-color: #FF6700; */
+  background-image: url(https://www.6degreeshealth.com/wp-content/uploads/2017/07/contact_hero.png);
+  background-size: cover;
+  /* height: 150px; */
   padding: 20px;
   color: white;
 }
@@ -40,5 +45,35 @@
 }
 
 .fibonacci-number {
-	padding: 0 .5em;
+	margin: .25em;
+	padding: .5em;
+	background-color: #FFC77D;
+}
+
+label {
+    font-family: Muli,-apple-system,system-ui,BlinkMacSystemFont,Arial,sans-serif!important;
+    color: #555!important;
+    text-align: left;
+}
+
+input[type='number'] {
+    border: none;
+    border-bottom: 1px solid #555;
+    margin: .25em 0;
+    font-size: 1.1em;
+    padding: .25em 0;
+}
+
+input[type='submit'] {
+	background-color: #ef7125;
+	font-size: 1.1em;
+	padding: 1em;
+	color: white;
+	font-family: Muli,-apple-system,system-ui,BlinkMacSystemFont,Arial,sans-serif;
+	margin: 1em 0;
+	border: none;
+}
+
+input[type='submit']:hover {
+	background-color: #FC7B34;
 }
