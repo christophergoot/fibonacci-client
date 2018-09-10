@@ -6,25 +6,38 @@ class FibonacciComponent extends Component {
 		super(props);
 		this.state = { value: '' };
 	}
-	
+
 	handleChange = event => {
 		this.setState({ value: event.target.value });
 	}
 	
+	renderFibonacciList = list => {
+		return list.map((num, i) => (
+			<span className='fibonacci-number' key={i}>
+				{num}
+			</span>
+		));
+	}
+
 	render() {
 		return (
 			<div>
 				<form onSubmit={values => this.props.handleNewRequest(values)} className='fibonacci-main'>
-					<label for='fibonacci-digits'>Number of Digits</label>
+					<label htmlFor='fibonacci-digits'>Number of Digits</label>
 					<input 
 						type='number' 
 						placeholder='42' 
 						id='fibonacci-digits'
 						value={this.state.value}
 						onChange={this.handleChange}
+						min='1'
+						required
 					/>
 					<input type='submit' value='Generate' />
 				</form>
+				<div id='fibonacci-list'>
+					{this.renderFibonacciList(this.props.list)}
+				</div>
 			</div>
 		);
 	}
