@@ -14,7 +14,7 @@
   /* background-color: #FF6700; */
   background-image: url(https://www.6degreeshealth.com/wp-content/uploads/2017/07/contact_hero.png);
   background-size: cover;
-  /* height: 150px; */
+  background-position-y: center;
   padding: 20px;
   color: white;
 }
@@ -37,10 +37,10 @@
 	justify-content: space-evenly;
 }
 
-#fibonacci-list {
+.fibonacci-list {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
 	margin: 0 1em;
 }
 
