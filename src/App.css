@@ -31,3 +31,14 @@
 	padding: 2em;
 	justify-content: space-evenly;
 }
+
+#fibonacci-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0 1em;
+}
+
+.fibonacci-number {
+	padding: 0 .5em;
+}
