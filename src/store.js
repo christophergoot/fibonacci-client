@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import reduxPromise from 'redux-promise';
 const initialState = ({
-	fobonacci: {
+	fibonacci: {
 		list: [],
 		digits: 0
 	}
