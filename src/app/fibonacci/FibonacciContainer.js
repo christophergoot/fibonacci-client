@@ -5,8 +5,8 @@ import { fetchFibonacciListSuccess } from '../../store';
 
 function mapStateToProps(state) {
 	return {
-		digits: state.fibonacci.digits,
-		list: state.fibonacci.list
+		list: state.fibonacci.list,
+		isLoading: state.fibonacci.isLoading
 	};
 }
 
@@ -34,9 +34,9 @@ class FibonacciContainer extends Component {
 	render() {
 		return (
 			<FibonacciComponent 
-				digits={this.props.digits}
 				list={this.props.list}
 				handleNewRequest={this.handleNewRequest}
+				isLoading={this.props.isLoading}
 			/>
 		);
 	}

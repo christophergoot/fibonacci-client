@@ -34,6 +34,7 @@ class FibonacciComponent extends Component {
 	}
 
 	render() {
+		if (this.props.isLoading) return (<h2>Loading . . .</h2>);
 		return (
 			<div>
 				<form onSubmit={values => this.handleSubmit(values)} className='fibonacci-main'>
@@ -58,7 +59,7 @@ class FibonacciComponent extends Component {
 }
 
 FibonacciComponent.propTypes = {
-	digits: PropTypes.number.isRequired,
+	isLoading: PropTypes.bool.isRequired,
 	list: PropTypes.arrayOf(PropTypes.number).isRequired,
 	handleNewRequest: PropTypes.func.isRequired
 };
