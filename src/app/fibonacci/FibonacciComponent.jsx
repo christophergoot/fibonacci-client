@@ -16,7 +16,12 @@ class FibonacciComponent extends Component {
 		this.props.handleNewRequest(values);
 	}
 	
-	renderFibonacciList = list => {
+	renderFibonacciList = (list) => {
+		if (this.props.isLoading) return (
+			<div>
+				<h2>Loading . . .</h2>
+			</div>
+		);
 		if (list.length === 0) return null;
 		const renderedList = list.map((num, i) => (
 			<span className='fibonacci-number' key={i}>
@@ -34,7 +39,6 @@ class FibonacciComponent extends Component {
 	}
 
 	render() {
-		if (this.props.isLoading) return (<h2>Loading . . .</h2>);
 		return (
 			<div>
 				<form onSubmit={values => this.handleSubmit(values)} className='fibonacci-main'>

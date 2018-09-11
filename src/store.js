@@ -1,5 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
-import reduxPromise from 'redux-promise';
+// import reduxPromise from 'redux-promise';
+import thunk from 'redux-thunk';
+
 const initialState = ({
 	fibonacci: {
 		list: [],
@@ -21,9 +23,10 @@ const Fibber = digits => {
 
 export const fetchFibonacciList = digits => dispatch => {
 	dispatch(fetchFibonacciListStart());
-	return Fibber(digits)
-		.then(list => dispatch(fetchFibonacciListSuccess(list)));
-} 
+	return new Promise((resolve, reject) => {
+		setTimeout(resolve, 100, Fibber(digits)) // fakes a server resopnse
+	}).then(list => dispatch(fetchFibonacciListSuccess(list)));
+}
 
 export const FETCH_FIBONACCI_LIST_START = 'FETCH_FIBONACCI_LIST_START';
 export const fetchFibonacciListStart = () => ({
@@ -44,8 +47,7 @@ const fibonacci = (state=initialState, action) => {
 				...state,
 				fibonacci: {
 					isLoading: true,
-					list: [],
-					digits: 0
+					list: []
 				}
 			}
 
@@ -54,8 +56,7 @@ const fibonacci = (state=initialState, action) => {
 				...state,
 				fibonacci: {
 					isLoading: false,
-					list: action.list,
-					digits: action.list.length
+					list: action.list
 				}
 			}
 		
@@ -64,6 +65,6 @@ const fibonacci = (state=initialState, action) => {
 	}
 }
 
-const store = createStore(fibonacci, applyMiddleware(reduxPromise));
+const store = createStore(fibonacci, applyMiddleware(thunk));
 
 export default store;
